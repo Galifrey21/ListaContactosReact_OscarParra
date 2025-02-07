@@ -79,23 +79,23 @@ export const Home = () => {
 			</div>
 			<div className="container d-flex flex-column align-items-center">
 				{agenda.contacts && agenda.contacts.map((contact, index) => (
-					<div key={index} className="card mb-3" style={{ maxWidth: "540px" }}>
+					<div key={index} className="card mb-3" style={{ width: "100%", maxWidth: "540px" }}>
 						<div className="row g-0">
 							<div className="col-md-4">
-								<img src={imagen} className="img-fluid rounded-start" alt="..." />
+								<img src={imagen} className="img-fluid rounded-start" alt="..." style={{ height: "100%", width: "100%", objectFit: "cover" }} />
 							</div>
 							<div className="col-md-8">
-								<div className="card-body d-flex justify-content-between">
-									<div>
-										<h5 className="card-title">{contact.name}</h5>
-										<p className="card-text"><strong className="me-2">Dirección:</strong>{contact.address}</p>
-										<p className="card-text"><strong className="me-2">Teléfono:</strong>{contact.phone}</p>
-										<p className="card-text"><strong className="me-2">Email:</strong>{contact.email}</p>
-									</div>
-									<div>
+								<div className="card-body">
+									{/* Botones arriba a la derecha */}
+									<div className="d-flex justify-content-end mb-3">
 										<button type="button" className="btn btn-primary me-1" onClick={() => updateContact(contact)}>Editar</button>
 										<button type="button" className="btn btn-danger ms-1" onClick={() => deleteContact(contact.id)}>Eliminar</button>
 									</div>
+									{/* Contenido principal */}
+									<h5 className="card-title">{contact.name}</h5>
+									<p className="card-text"><strong className="me-2">Dirección:</strong>{contact.address}</p>
+									<p className="card-text"><strong className="me-2">Teléfono:</strong>{contact.phone}</p>
+									<p className="card-text"><strong className="me-2">Email:</strong>{contact.email}</p>
 								</div>
 							</div>
 						</div>
